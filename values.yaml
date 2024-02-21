@@ -1,0 +1,5 @@
+replicaCount: 3
+
+image:
+  repository: simple-webapp-color
+  tag: latest

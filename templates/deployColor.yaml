@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: my-deploy 
+   labels:
+     app: simple-webapp-color
+     version: latest
+spec: 
+   replicas: 3
+   selector:
+     matchLabels:
+       app: simple-webapp-color
+       version: latest
+   template:
+      metadata:
+       name: simple-webapp-color
+       labels:
+         app: simple-webapp-color
+         version: latest
+      spec:
+        containers: 
+        - name: simple-webapp-color
+          image:  simple-webapp-color:latest
+          resources: 
+            requests: 
+              memory: "64Mi"
+              cpu: "250m"
+            limits: 
+              memory: "64Mi"
+              cpu: "250m"
+          ports:
+          - containerPort: 80
